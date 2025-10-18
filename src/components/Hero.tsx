@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const scrollToServices = () => {
@@ -7,21 +8,36 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-accent/20 to-background px-4 pt-20">
-      <div className="max-w-5xl mx-auto text-center space-y-8">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-          CVG Engenharia
-          <span className="block text-secondary mt-2">de Projetos</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-          Soluções especializadas em engenharia ambiental e florestal com excelência técnica e sustentabilidade
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" onClick={scrollToServices} className="text-lg bg-primary hover:bg-primary/90">
+    <section id="home" className="min-h-screen flex items-center justify-center relative px-4 pt-20 overflow-hidden">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5"></div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10">
+        {/* Logo */}
+        <div className="flex justify-center animate-fade-in">
+          <div className="bg-background/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-border/50">
+            <img src={logo} alt="CVG Engenharia de Projetos" className="h-32 md:h-40 w-auto" />
+          </div>
+        </div>
+        
+        {/* Subtitle with glass effect */}
+        <div className="bg-background/60 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-border/30 animate-fade-in">
+          <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
+            Soluções especializadas em engenharia ambiental e florestal com excelência técnica e sustentabilidade
+          </p>
+        </div>
+        
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+          <Button size="lg" onClick={scrollToServices} className="text-lg bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
             Conheça nossos serviços
             <ArrowRight className="ml-2" />
           </Button>
-          <Button size="lg" variant="outline" asChild className="text-lg border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+          <Button size="lg" variant="outline" asChild className="text-lg border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground shadow-lg hover:shadow-xl transition-all backdrop-blur-sm bg-background/50">
             <a href="https://wa.me/5547988477086" target="_blank" rel="noopener noreferrer">
               Entre em contato
             </a>
