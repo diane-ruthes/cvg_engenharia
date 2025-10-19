@@ -19,13 +19,11 @@ const Hero = () => {
       <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10">
         {/* Logo */}
         <div className="flex justify-center animate-fade-in">
-          <div className="bg-background/70 backdrop-blur-xl rounded-3xl p-8 border border-border/20">
-            <img src={logo} alt="CVG Engenharia de Projetos" className="h-32 md:h-40 w-auto" />
-          </div>
+          <img src={logo} alt="CVG Engenharia de Projetos" className="h-32 md:h-40 w-auto" />
         </div>
         
-        {/* Subtitle with glass effect */}
-        <div className="bg-background/50 backdrop-blur-xl rounded-2xl p-8 border border-border/20 animate-fade-in">
+        {/* Subtitle */}
+        <div className="animate-fade-in">
           <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
             Soluções especializadas em engenharia ambiental e florestal com excelência técnica e sustentabilidade
           </p>
