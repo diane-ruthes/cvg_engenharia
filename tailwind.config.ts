@@ -90,6 +90,14 @@ export default {
             transform: "translateY(0)"
           }
         },
+        "scale": {
+          "0%, 100%": {
+            transform: "scale(1.1)"
+          },
+          "50%": {
+            transform: "scale(1.15)"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

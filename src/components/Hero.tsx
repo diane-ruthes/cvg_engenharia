@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
   const scrollToServices = () => {
@@ -9,12 +10,18 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative px-4 pt-20 overflow-hidden">
-      {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5"></div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+      {/* Background image with parallax effect */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center animate-[scale_20s_ease-in-out_infinite_alternate]"
+          style={{ 
+            backgroundImage: `url(${heroBackground})`,
+            transform: 'scale(1.1)'
+          }}
+        ></div>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/85"></div>
+      </div>
       
       <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10">
         {/* Logo */}
