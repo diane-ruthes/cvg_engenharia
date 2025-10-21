@@ -29,7 +29,7 @@ const Clients = () => {
               onClick={() => window.open(client.url, '_blank')}
             >
               <div className="text-center w-full">
-                <div className="w-full h-20 flex items-center justify-center mb-4 grayscale group-hover:grayscale-0 transition-all duration-300">
+                <div className="w-full h-20 flex items-center justify-center mb-4 transition-all duration-300">
                   <img 
                     src={client.logo} 
                     alt={client.name}
