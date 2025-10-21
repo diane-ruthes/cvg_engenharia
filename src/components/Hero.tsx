@@ -24,13 +24,6 @@ const Hero = () => {
       </div>
       
       <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10">
-        {/* Subtitle */}
-        <div className="animate-fade-in">
-          <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed font-semibold drop-shadow-lg">
-            Soluções especializadas em engenharia ambiental e florestal com excelência técnica e sustentabilidade
-          </p>
-        </div>
-        
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
           <Button size="lg" onClick={scrollToServices} className="text-lg bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
