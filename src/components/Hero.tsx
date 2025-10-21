@@ -24,6 +24,7 @@ const Hero = () => {
       </div>
       
       <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10">
+      </div>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
           <Button size="lg" onClick={scrollToServices} className="text-lg bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
