@@ -9,7 +9,7 @@ const About = () => {
             A Empresa
           </h2>
           <p className="text-xl md:text-2xl text-secondary font-semibold max-w-4xl mx-auto leading-relaxed">
-            Desde 2020 trazendo soluções especializadas em engenharia ambiental e florestal com excelência técnica e sustentabilidade.
+            Somos uma empresa brasileira, com sede em Rio Negro, Paraná, atuando desde 2020 com soluções especializadas em engenharia florestal e ambiental. Com excelência técnica e compromisso com a sustentabilidade, atendemos pequenas, médias e grandes empresas em toda a América Latina.
           </p>
         </div>
 
