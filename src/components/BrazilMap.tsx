@@ -1,4 +1,5 @@
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import { useState } from "react";
 
 const geoUrl = "https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson";
 
@@ -17,6 +18,8 @@ const cities = [
 ];
 
 const BrazilMap = () => {
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null);
+  
   return (
     <section id="mapa" className="py-16 px-4 bg-muted">
       <div className="max-w-7xl mx-auto">
@@ -29,7 +32,13 @@ const BrazilMap = () => {
           </p>
         </div>
 
-        <div className="bg-card rounded-lg shadow-lg p-4 md:p-8">
+        <div className="bg-card rounded-lg shadow-lg p-4 md:p-8 relative">
+          {hoveredCity && (
+            <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg z-10 pointer-events-none">
+              {hoveredCity}
+            </div>
+          )}
+          
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{
@@ -66,45 +75,17 @@ const BrazilMap = () => {
             {cities.map((city) => (
               <Marker key={city.name} coordinates={city.coordinates}>
                 <circle 
-                  r={4} 
+                  r={5} 
                   fill="hsl(var(--primary))" 
                   stroke="hsl(var(--background))"
-                  strokeWidth={1.5}
-                  className="animate-pulse"
+                  strokeWidth={2}
+                  className="cursor-pointer transition-all hover:r-7"
+                  onMouseEnter={() => setHoveredCity(`${city.name} - ${city.state}`)}
+                  onMouseLeave={() => setHoveredCity(null)}
                 />
               </Marker>
             ))}
           </ComposableMap>
-
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="font-semibold text-primary mb-2">Santa Catarina</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Jaraguá do Sul</li>
-                <li>• Guaramirim</li>
-                <li>• Gaspar</li>
-                <li>• Massaranduba</li>
-                <li>• Luiz Alves</li>
-              </ul>
-            </div>
-            
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="font-semibold text-primary mb-2">Minas Gerais</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Itabira</li>
-                <li>• São Pedro do Suaçuí</li>
-                <li>• Perdigão</li>
-                <li>• Ferros</li>
-              </ul>
-            </div>
-            
-            <div className="bg-muted p-4 rounded-lg">
-              <h3 className="font-semibold text-primary mb-2">Rio Grande do Norte</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Caiçara do Norte</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>
