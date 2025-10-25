@@ -1,14 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const scrollToServices = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToNext = () => {
-    document.getElementById('empresa')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -63,18 +59,6 @@ const Hero = () => {
               Entre em contato
             </a>
           </Button>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <button 
-            onClick={scrollToNext}
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Scroll to next section"
-          >
-            <span className="text-xs font-medium">Saiba mais</span>
-            <ChevronDown className="w-5 h-5" />
-          </button>
         </div>
       </div>
     </section>
