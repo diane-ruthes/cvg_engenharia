@@ -4,93 +4,95 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+Professional Corporate Design System
 */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 20% 15%;
+    --foreground: 220 13% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 220 13% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 220 13% 20%;
 
-    --primary: 147 60% 35%;
+    /* Professional Green - Corporate Environmental Theme */
+    --primary: 142 71% 29%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 75% 45%;
+    /* Professional Blue - Secondary Actions */
+    --secondary: 217 91% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 147 15% 96%;
-    --muted-foreground: 220 10% 45%;
+    /* Muted - Light Grays */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 48%;
 
-    --accent: 220 70% 95%;
-    --accent-foreground: 220 75% 45%;
+    /* Accent - Light Blue */
+    --accent: 217 100% 95%;
+    --accent-foreground: 217 91% 42%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 147 20% 90%;
-    --input: 147 20% 90%;
-    --ring: 147 50% 25%;
+    /* Borders - Subtle Gray */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142 71% 29%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-foreground: 220 13% 20%;
+    --sidebar-primary: 142 71% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 13% 20%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 42%;
   }
 
   .dark {
-    --background: 220 30% 8%;
-    --foreground: 220 15% 95%;
+    --background: 220 13% 10%;
+    --foreground: 220 14% 96%;
 
-    --card: 220 25% 12%;
-    --card-foreground: 220 15% 95%;
+    --card: 220 13% 15%;
+    --card-foreground: 220 14% 96%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 220 15% 95%;
+    --popover: 220 13% 15%;
+    --popover-foreground: 220 14% 96%;
 
-    --primary: 147 55% 45%;
+    /* Professional Green - Lighter for dark mode */
+    --primary: 142 71% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 70% 50%;
+    /* Professional Blue - Lighter for dark mode */
+    --secondary: 217 91% 58%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 220 13% 25%;
+    --muted-foreground: 220 14% 70%;
 
-    --accent: 220 30% 25%;
-    --accent-foreground: 220 15% 95%;
+    --accent: 217 100% 30%;
+    --accent-foreground: 217 100% 95%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 147 15% 95%;
+    --destructive-foreground: 220 14% 96%;
 
-    --border: 147 20% 25%;
-    --input: 147 20% 25%;
-    --ring: 147 50% 50%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 142 71% 45%;
+    
+    --sidebar-background: 220 13% 10%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 142 71% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 13% 25%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 220 13% 25%;
+    --sidebar-ring: 217 91% 58%;
   }
 }
 
@@ -101,5 +103,38 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Professional Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl;
   }
 }
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
+
+::-moz-selection {
+  @apply bg-primary text-primary-foreground;
+}
+
