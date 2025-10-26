@@ -1,11 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trees, Leaf, FileCheck, Axe, BarChart3, Sprout, ArrowRight } from "lucide-react";
+import forestInventory from "@/assets/services/forest-inventory.jpg";
+import restoration from "@/assets/services/restoration.jpg";
+import environmental from "@/assets/services/environmental.jpg";
+import suppression from "@/assets/services/suppression.jpg";
+import business from "@/assets/services/business.jpg";
+import carbon from "@/assets/services/carbon.jpg";
 
 const services = [
   {
     icon: Trees,
     title: "Inventário Florestal",
     description: "Levantamentos precisos e análises detalhadas de recursos florestais",
+    image: forestInventory,
     items: [
       "Inventário em Florestas Plantadas",
       "Inventário em Florestas Nativas",
@@ -17,6 +24,7 @@ const services = [
     icon: Sprout,
     title: "Restauração Florestal",
     description: "Projetos de recuperação e reflorestamento sustentável",
+    image: restoration,
     items: [
       "Execução de PRAD e Plantios Compensatórios",
       "Monitoramento de Restauração Florestal",
@@ -28,6 +36,7 @@ const services = [
     icon: FileCheck,
     title: "Adequação Ambiental",
     description: "Soluções para regularização e conformidade ambiental",
+    image: environmental,
     items: [
       "Licenciamento Ambiental",
       "Regularização de Áreas Degradadas",
@@ -39,6 +48,7 @@ const services = [
     icon: Axe,
     title: "Supressão Florestal",
     description: "Execução segura e responsável de operações florestais",
+    image: suppression,
     items: [
       "Elaboração e Acompanhamento de ASV",
       "Execução de Supressão Vegetal",
@@ -50,6 +60,7 @@ const services = [
     icon: BarChart3,
     title: "Inteligência de Negócios",
     description: "Transformação de dados em insights estratégicos",
+    image: business,
     items: [
       "Automação de Relatórios e Dashboards",
       "ETL com Power Query e Python",
@@ -61,6 +72,7 @@ const services = [
     icon: Leaf,
     title: "Créditos de Carbono",
     description: "Soluções em projetos de carbono e sustentabilidade",
+    image: carbon,
     items: [
       "Soluções em Projetos de Carbono",
       "Transformação de Desafios Climáticos",
@@ -94,12 +106,18 @@ const Services = () => {
                 key={index} 
                 className="group relative overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
               >
-                {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                ></div>
+                
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95 group-hover:from-background/90 group-hover:via-background/85 group-hover:to-background/90 transition-all duration-300"></div>
 
-                <CardHeader className="pb-4">
+                <CardHeader className="pb-4 relative z-10">
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
 
@@ -108,7 +126,7 @@ const Services = () => {
                   <p className="text-sm text-muted-foreground">{service.description}</p>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 relative z-10">
                   {/* Items List */}
                   <ul className="space-y-2">
                     {service.items.map((item, itemIndex) => (
@@ -120,7 +138,7 @@ const Services = () => {
                   </ul>
 
                   {/* CTA Link */}
-                  <div className="pt-4 border-t border-border">
+                  <div className="pt-4 border-t border-border/50">
                     <a 
                       href="https://wa.me/5547988477086" 
                       target="_blank" 
