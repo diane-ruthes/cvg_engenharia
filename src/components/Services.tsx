@@ -121,10 +121,9 @@ const Services = () => {
                     <Icon className="w-6 h-6 text-white" />
                   </div>
 
-                  {/* Title and Description with background */}
+                  {/* Title with background */}
                   <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 -mx-2">
-                    <CardTitle className="text-xl text-white mb-2 font-bold">{service.title}</CardTitle>
-                    <p className="text-sm text-white/95">{service.description}</p>
+                    <CardTitle className="text-xl text-white font-bold">{service.title}</CardTitle>
                   </div>
                 </CardHeader>
 
