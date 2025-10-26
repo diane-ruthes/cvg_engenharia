@@ -112,8 +112,8 @@ const Services = () => {
                   style={{ backgroundImage: `url(${service.image})` }}
                 ></div>
                 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95 group-hover:from-background/90 group-hover:via-background/85 group-hover:to-background/90 transition-all duration-300"></div>
+                {/* Dark Overlay - mais transparente para mostrar mais a imagem */}
+                <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/75 group-hover:from-background/65 group-hover:via-background/55 group-hover:to-background/70 transition-all duration-300"></div>
 
                 <CardHeader className="pb-4 relative z-10">
                   {/* Icon */}
@@ -122,28 +122,28 @@ const Services = () => {
                   </div>
 
                   {/* Title and Description */}
-                  <CardTitle className="text-xl text-foreground mb-2">{service.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <CardTitle className="text-xl text-white mb-2 font-bold drop-shadow-lg">{service.title}</CardTitle>
+                  <p className="text-sm text-white/90 drop-shadow-md">{service.description}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-4 relative z-10">
                   {/* Items List */}
                   <ul className="space-y-2">
                     {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-sm text-muted-foreground flex items-start gap-3 group/item">
-                        <span className="text-primary font-bold mt-0.5 group-hover/item:text-secondary transition-colors">→</span>
-                        <span className="group-hover/item:text-foreground transition-colors">{item}</span>
+                      <li key={itemIndex} className="text-sm text-white/85 flex items-start gap-3 group/item drop-shadow-md">
+                        <span className="text-primary font-bold mt-0.5 group-hover/item:text-secondary transition-colors drop-shadow-lg">→</span>
+                        <span className="group-hover/item:text-white transition-colors">{item}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA Link */}
-                  <div className="pt-4 border-t border-border/50">
+                  <div className="pt-4 border-t border-white/20">
                     <a 
                       href="https://wa.me/5547988477086" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium text-sm group/link"
+                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium text-sm group/link drop-shadow-lg"
                     >
                       Solicitar orçamento
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
