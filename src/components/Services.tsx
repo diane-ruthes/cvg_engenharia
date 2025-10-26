@@ -112,8 +112,8 @@ const Services = () => {
                   style={{ backgroundImage: `url(${service.image})` }}
                 ></div>
                 
-                {/* Dark Overlay - mais transparente para mostrar mais a imagem */}
-                <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/75 group-hover:from-background/65 group-hover:via-background/55 group-hover:to-background/70 transition-all duration-300"></div>
+                {/* Dark Overlay with better contrast */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 group-hover:from-black/55 group-hover:via-black/45 group-hover:to-black/65 transition-all duration-300"></div>
 
                 <CardHeader className="pb-4 relative z-10">
                   {/* Icon */}
@@ -121,29 +121,33 @@ const Services = () => {
                     <Icon className="w-6 h-6 text-white" />
                   </div>
 
-                  {/* Title and Description */}
-                  <CardTitle className="text-xl text-white mb-2 font-bold drop-shadow-lg">{service.title}</CardTitle>
-                  <p className="text-sm text-white/90 drop-shadow-md">{service.description}</p>
+                  {/* Title and Description with background */}
+                  <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 -mx-2">
+                    <CardTitle className="text-xl text-white mb-2 font-bold">{service.title}</CardTitle>
+                    <p className="text-sm text-white/95">{service.description}</p>
+                  </div>
                 </CardHeader>
 
                 <CardContent className="space-y-4 relative z-10">
-                  {/* Items List */}
-                  <ul className="space-y-2">
-                    {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-sm text-white/85 flex items-start gap-3 group/item drop-shadow-md">
-                        <span className="text-primary font-bold mt-0.5 group-hover/item:text-secondary transition-colors drop-shadow-lg">→</span>
-                        <span className="group-hover/item:text-white transition-colors">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Items List with background */}
+                  <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
+                    <ul className="space-y-2">
+                      {service.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-sm text-white flex items-start gap-3 group/item">
+                          <span className="text-primary font-bold mt-0.5 group-hover/item:text-secondary transition-colors">→</span>
+                          <span className="group-hover/item:text-white/90 transition-colors">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                  {/* CTA Link */}
+                  {/* CTA Link with background */}
                   <div className="pt-4 border-t border-white/20">
                     <a 
                       href="https://wa.me/5547988477086" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium text-sm group/link drop-shadow-lg"
+                      className="inline-flex items-center gap-2 text-white bg-primary/80 hover:bg-secondary/80 transition-colors font-medium text-sm group/link px-4 py-2 rounded-lg backdrop-blur-sm"
                     >
                       Solicitar orçamento
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
