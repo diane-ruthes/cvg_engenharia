@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import img1 from "@/assets/hero_images/img_1_enhanced.png";
 import img2 from "@/assets/hero_images/img_2_enhanced.png";
@@ -42,10 +40,6 @@ const Hero = () => {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const scrollToNext = () => {
-    document.getElementById('empresa')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -100,18 +94,6 @@ const Hero = () => {
             {slides[currentSlide].subtitlePart}
           </p>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-        <button 
-          onClick={scrollToNext}
-          className="flex flex-col items-center gap-2 text-white hover:text-white/80 transition-colors drop-shadow-lg"
-          aria-label="Scroll to next section"
-        >
-          <span className="text-xs font-medium">Saiba mais</span>
-          <ChevronDown className="w-5 h-5" />
-        </button>
       </div>
     </section>
   );

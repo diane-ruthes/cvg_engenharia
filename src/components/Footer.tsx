@@ -1,11 +1,21 @@
 import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer id="contato" className="bg-gradient-to-b from-foreground/5 to-foreground/10 border-t border-border">
+      {/* Logo Section */}
+      <div className="max-w-7xl mx-auto px-4 py-8 border-b border-border">
+        <img 
+          src={logo} 
+          alt="CVG Engenharia" 
+          className="h-32 w-auto" 
+        />
+      </div>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
