@@ -12,17 +12,20 @@ const Hero = () => {
     { 
       image: img1, 
       alt: "Flor roxa em campo aberto",
-      text: "CVG Engenharia e projetos, consultoria especializada em manejo florestal e gestão ambiental."
+      titlePart: "CVG Engenharia e projetos",
+      subtitlePart: "consultoria especializada em manejo florestal e gestão ambiental."
     },
     { 
       image: img2, 
       alt: "Árvore alta em floresta nativa",
-      text: "Consultoria Técnica em Silvicultura, Restauração e Gestão Ambiental."
+      titlePart: "Consultoria Técnica",
+      subtitlePart: "em Silvicultura, Restauração e Gestão Ambiental."
     },
     { 
       image: img3, 
       alt: "Planta com frutos vermelhos",
-      text: "Atuação especializada em todo o ciclo florestal, garantindo produtividade, conformidade e equilíbrio ambiental."
+      titlePart: "Atuação especializada",
+      subtitlePart: "em todo o ciclo florestal, garantindo produtividade, conformidade e equilíbrio ambiental."
     },
   ];
 
@@ -89,19 +92,12 @@ const Hero = () => {
       {/* Conteúdo Sobreposto */}
       <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10 px-4">
         {/* Texto de Sobreposição - Dinâmico por Slide */}
-        <div className="animate-fade-in space-y-6">
-          <p className="text-lg md:text-xl text-white font-semibold max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-            {slides[currentSlide].text}
-          </p>
-        </div>
-
-        {/* Main Heading */}
         <div className="animate-fade-in space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-            Consultoria Técnica em Silvicultura, Manejo Florestal e Gestão Ambiental
+          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+            {slides[currentSlide].titlePart}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-            Atuação especializada em todo o ciclo florestal, garantindo produtividade, conformidade e equilíbrio ambiental.
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+            {slides[currentSlide].subtitlePart}
           </p>
         </div>
       </div>
