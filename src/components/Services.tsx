@@ -41,7 +41,8 @@ const services = [
       "Licenciamento Ambiental",
       "Regularização de Áreas Degradadas",
       "Projetos de Adequação (PRAD, PRA, CAR)",
-      "Geoprocessamento e Mapeamento"
+      "Geoprocessamento e Mapeamento",
+      "PGRS Plano de Gerenciamento de Resíduos Sólidos"
     ]
   },
   {
