@@ -28,13 +28,13 @@ const Navigation = () => {
         : 'bg-background/50 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <div 
             className="flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200" 
             onClick={() => scrollToSection('home')}
           >
-            <img src={logo} alt="CVG Engenharia" className="h-12 w-auto" />
+            <img src={logo} alt="CVG Engenharia" className="h-16 w-auto" />
           </div>
           
           {/* Desktop Menu */}

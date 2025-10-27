@@ -84,13 +84,13 @@ const Hero = () => {
       </div>
 
       {/* Conteúdo Sobreposto */}
-      <div className="max-w-5xl mx-auto text-center space-y-10 relative z-10 px-4">
+      <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10 px-4">
         {/* Texto de Sobreposição - Dinâmico por Slide */}
         <div className="animate-fade-in space-y-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
             {slides[currentSlide].titlePart}
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+          <p className="text-2xl md:text-4xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-semibold">
             {slides[currentSlide].subtitlePart}
           </p>
         </div>
