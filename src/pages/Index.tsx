@@ -5,8 +5,9 @@ import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import Clients from "@/components/Clients";
 import BrazilMap from "@/components/BrazilMap";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import ContactButton from "@/components/ContactButton";
 
 const Index = () => {
   return (
@@ -18,8 +19,9 @@ const Index = () => {
       <Gallery />
       <Clients />
       <BrazilMap />
+      <ContactForm />
       <Footer />
-      <WhatsAppButton />
+      <ContactButton />
     </div>
   );
 };

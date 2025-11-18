@@ -82,6 +82,15 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <a 
+                  href="mailto:Ruthes@florestal.eng.br"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Ruthes@florestal.eng.br
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-muted-foreground">
                   Rio Negro, Paraná<br />Brasil
