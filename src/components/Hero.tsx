@@ -87,7 +87,7 @@ const Hero = () => {
       <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10 px-4">
         {/* Texto de Sobreposição - Dinâmico por Slide */}
         <div className="animate-fade-in space-y-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg whitespace-nowrap">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg whitespace-nowrap">
             {slides[currentSlide].titlePart}
           </h1>
           <p className="text-2xl md:text-4xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-lg font-semibold">
