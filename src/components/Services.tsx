@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trees, Leaf, FileCheck, Axe, BarChart3, Sprout, ArrowRight } from "lucide-react";
+import { Trees, Leaf, FileCheck, Axe, BarChart3, Sprout } from "lucide-react";
 import forestInventory from "@/assets/services/forest-inventory.jpg";
 import restoration from "@/assets/services/restoration.jpg";
 import environmental from "@/assets/services/environmental.jpg";
@@ -141,18 +141,6 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  {/* CTA Link with background */}
-                  <div className="pt-4 border-t border-white/20">
-                    <a 
-                      href="https://wa.me/5547988477086" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-white bg-primary/80 hover:bg-secondary/80 transition-colors font-medium text-sm group/link px-4 py-2 rounded-lg backdrop-blur-sm"
-                    >
-                      Solicitar orçamento
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
                 </CardContent>
 
                 {/* Accent line */}
