@@ -21,31 +21,43 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Criar o corpo do e-mail
-    const mailtoLink = `mailto:Ruthes@florestal.eng.br?subject=${encodeURIComponent(
-      formData.subject
-    )}&body=${encodeURIComponent(
-      `Nome: ${formData.name}\nE-mail: ${formData.email}\n\nMensagem:\n${formData.message}`
-    )}`;
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    // Abrir o cliente de e-mail
-    window.location.href = mailtoLink;
+      if (!response.ok) {
+        throw new Error("Falha ao enviar mensagem");
+      }
 
-    toast({
-      title: "Redirecionando...",
-      description: "Abrindo seu cliente de e-mail para enviar a mensagem.",
-    });
+      toast({
+        title: "Mensagem enviada!",
+        description: "Recebemos sua mensagem e entraremos em contato em breve.",
+      });
 
-    // Resetar o formulário após um pequeno delay
-    setTimeout(() => {
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Não foi possível enviar sua mensagem. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
