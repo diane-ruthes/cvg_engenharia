@@ -1,24 +1,10 @@
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
-import { publicUrl } from "@/lib/site";
+import { cities, publicUrl } from "@/lib/site";
 
 const geoUrl = publicUrl("brazil-states.json");
 
-// Municípios onde já atuamos (coordenadas aproximadas: [longitude, latitude])
-const cities: { name: string; state: string; coordinates: [number, number] }[] = [
-  { name: "Jaraguá do Sul", state: "SC", coordinates: [-49.0667, -26.4867] },
-  { name: "Guaramirim", state: "SC", coordinates: [-49.0017, -26.4728] },
-  { name: "Gaspar", state: "SC", coordinates: [-48.9578, -26.9306] },
-  { name: "Massaranduba", state: "SC", coordinates: [-49.0047, -26.6094] },
-  { name: "Luiz Alves", state: "SC", coordinates: [-48.9303, -26.7156] },
-  { name: "Palhoça", state: "SC", coordinates: [-48.6703, -27.6456] },
-  { name: "Itabira", state: "MG", coordinates: [-43.2269, -19.6194] },
-  { name: "São Pedro do Suaçuí", state: "MG", coordinates: [-42.6019, -18.3614] },
-  { name: "Perdigão", state: "MG", coordinates: [-45.0833, -19.9333] },
-  { name: "Ferros", state: "MG", coordinates: [-43.0211, -19.2306] },
-  { name: "Caiçara do Norte", state: "RN", coordinates: [-36.0833, -5.0833] },
-];
 
 const stateNames: Record<string, string> = { SC: "Santa Catarina", MG: "Minas Gerais", RN: "Rio Grande do Norte" };
 const states = Array.from(new Set(cities.map((c) => c.state)));

@@ -18,7 +18,7 @@ Configuração necessária (uma única vez), em **Settings → Pages** do reposi
 | Telefone, e-mail, WhatsApp, redes sociais | `src/lib/site.ts` |
 | Serviços | `src/components/Services.tsx` |
 | Texto "A Empresa" | `src/components/About.tsx` |
-| Municípios do mapa | `src/components/BrazilMap.tsx` |
+| Municípios do mapa (e o número no topo) | `src/lib/site.ts` |
 | Clientes (logos em `public/clients/`) | `src/components/Clients.tsx` |
 | Título, descrição e dados para o Google | `index.html` |
 

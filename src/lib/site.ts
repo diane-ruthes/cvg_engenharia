@@ -28,5 +28,20 @@ export const navLinks = [
   { id: "contato", label: "Contato" },
 ];
 
+// Municípios onde já atuamos (mapa da seção "Atuação") (coordenadas aproximadas: [longitude, latitude])
+export const cities: { name: string; state: string; coordinates: [number, number] }[] = [
+  { name: "Jaraguá do Sul", state: "SC", coordinates: [-49.0667, -26.4867] },
+  { name: "Guaramirim", state: "SC", coordinates: [-49.0017, -26.4728] },
+  { name: "Gaspar", state: "SC", coordinates: [-48.9578, -26.9306] },
+  { name: "Massaranduba", state: "SC", coordinates: [-49.0047, -26.6094] },
+  { name: "Luiz Alves", state: "SC", coordinates: [-48.9303, -26.7156] },
+  { name: "Palhoça", state: "SC", coordinates: [-48.6703, -27.6456] },
+  { name: "Itabira", state: "MG", coordinates: [-43.2269, -19.6194] },
+  { name: "São Pedro do Suaçuí", state: "MG", coordinates: [-42.6019, -18.3614] },
+  { name: "Perdigão", state: "MG", coordinates: [-45.0833, -19.9333] },
+  { name: "Ferros", state: "MG", coordinates: [-43.0211, -19.2306] },
+  { name: "Caiçara do Norte", state: "RN", coordinates: [-36.0833, -5.0833] },
+];
+
 /** Caminho de arquivos da pasta public, respeitando o endereço base do site. */
 export const publicUrl = (file: string) => `${import.meta.env.BASE_URL}${file.replace(/^\//, "")}`;

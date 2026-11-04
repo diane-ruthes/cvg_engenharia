@@ -3,7 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import img1 from "@/assets/hero/paisagem-floresta.webp";
 import img2 from "@/assets/hero/sementes-nativas.webp";
 import img3 from "@/assets/hero/campo-rupestre.webp";
-import { contact, yearsOfExperience } from "@/lib/site";
+import { cities, contact, yearsOfExperience } from "@/lib/site";
 
 const slides = [
   { image: img1, alt: "Paisagem de floresta nativa com serra ao fundo" },
@@ -91,8 +91,8 @@ const Hero = () => {
               <dd className="font-display text-2xl sm:text-3xl font-semibold">50+</dd>
             </div>
             <div>
-              <dt className="text-xs sm:text-sm text-white/70">Estados</dt>
-              <dd className="font-display text-2xl sm:text-3xl font-semibold">3</dd>
+              <dt className="text-xs sm:text-sm text-white/70">Municípios</dt>
+              <dd className="font-display text-2xl sm:text-3xl font-semibold">{cities.length}</dd>
             </div>
           </dl>
         </div>
