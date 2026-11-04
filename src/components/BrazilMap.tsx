@@ -12,6 +12,7 @@ const cities: { name: string; state: string; coordinates: [number, number] }[] =
   { name: "Gaspar", state: "SC", coordinates: [-48.9578, -26.9306] },
   { name: "Massaranduba", state: "SC", coordinates: [-49.0047, -26.6094] },
   { name: "Luiz Alves", state: "SC", coordinates: [-48.9303, -26.7156] },
+  { name: "Palhoça", state: "SC", coordinates: [-48.6703, -27.6456] },
   { name: "Itabira", state: "MG", coordinates: [-43.2269, -19.6194] },
   { name: "São Pedro do Suaçuí", state: "MG", coordinates: [-42.6019, -18.3614] },
   { name: "Perdigão", state: "MG", coordinates: [-45.0833, -19.9333] },

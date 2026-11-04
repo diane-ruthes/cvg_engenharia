@@ -8,7 +8,7 @@ const clients: { name: string; url: string; logo?: string; dark?: boolean }[] = 
   { name: "CSS Construtora", url: "https://cssconstrutora.com", logo: "clients/css-logo.svg", dark: true },
   { name: "Gi Energy", url: "https://gienergy.com.au", logo: "clients/gienergy-logo.png" },
   { name: "Bauminvest Reflorestadora", url: "https://bauminvest.de", logo: "clients/bauminvest-logo.png" },
-  { name: "Prefeitura de Palhoça – SC", url: "https://www.palhoca.sc.gov.br" },
+  { name: "Prefeitura de Palhoça – SC", url: "https://www.palhoca.sc.gov.br", logo: "clients/palhoca-brasao.png" },
 ];
 
 const Clients = () => {
