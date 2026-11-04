@@ -13,6 +13,13 @@ interface ContactEmailRequest {
   message: string;
 }
 
+const escapeHtml = (value: string) =>
+  String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -40,14 +47,15 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "CVG Contato <onboarding@resend.dev>",
         to: ["Ruthes@florestal.eng.br"],
-        subject: `Novo Contato: ${subject}`,
+        reply_to: email,
+        subject: `Novo Contato: ${String(subject).slice(0, 150)}`,
         html: `
           <h2>Nova mensagem de contato</h2>
-          <p><strong>Nome:</strong> ${name}</p>
-          <p><strong>E-mail:</strong> ${email}</p>
-          <p><strong>Assunto:</strong> ${subject}</p>
+          <p><strong>Nome:</strong> ${escapeHtml(name)}</p>
+          <p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
+          <p><strong>Assunto:</strong> ${escapeHtml(subject)}</p>
           <h3>Mensagem:</h3>
-          <p>${message.replace(/\n/g, '<br>')}</p>
+          <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
         `,
       }),
     });

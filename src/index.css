@@ -2,97 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-Professional Corporate Design System
-*/
+/* Sistema visual da CVG Engenharia — cores tiradas do logo (verde e azul). Todas em HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 20%;
+    --background: 60 20% 99%;
+    --foreground: 150 18% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 20%;
+    --card-foreground: 150 18% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 20%;
+    --popover-foreground: 150 18% 12%;
 
-    /* Professional Green - Corporate Environmental Theme */
-    --primary: 142 71% 29%;
+    /* Verde do logo */
+    --primary: 124 37% 33%;
     --primary-foreground: 0 0% 100%;
 
-    /* Professional Blue - Secondary Actions */
-    --secondary: 217 91% 42%;
+    /* Azul do logo */
+    --secondary: 228 55% 43%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted - Light Grays */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 8% 48%;
+    --muted: 90 15% 95%;
+    --muted-foreground: 150 8% 38%;
 
-    /* Accent - Light Blue */
-    --accent: 217 100% 95%;
-    --accent-foreground: 217 91% 42%;
+    --accent: 110 30% 92%;
+    --accent-foreground: 124 37% 25%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Verde-escuro de floresta para seções escuras */
+    --forest: 150 30% 11%;
+    --forest-foreground: 80 20% 94%;
+
+    --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Borders - Subtle Gray */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 142 71% 29%;
+    --border: 100 12% 88%;
+    --input: 100 12% 85%;
+    --ring: 124 37% 33%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 13% 20%;
-    --sidebar-primary: 142 71% 29%;
+    --sidebar-foreground: 150 18% 12%;
+    --sidebar-primary: 124 37% 33%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 220 13% 20%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 42%;
-  }
-
-  .dark {
-    --background: 220 13% 10%;
-    --foreground: 220 14% 96%;
-
-    --card: 220 13% 15%;
-    --card-foreground: 220 14% 96%;
-
-    --popover: 220 13% 15%;
-    --popover-foreground: 220 14% 96%;
-
-    /* Professional Green - Lighter for dark mode */
-    --primary: 142 71% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Professional Blue - Lighter for dark mode */
-    --secondary: 217 91% 58%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 13% 25%;
-    --muted-foreground: 220 14% 70%;
-
-    --accent: 217 100% 30%;
-    --accent-foreground: 217 100% 95%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 220 14% 96%;
-
-    --border: 220 13% 25%;
-    --input: 220 13% 25%;
-    --ring: 142 71% 45%;
-    
-    --sidebar-background: 220 13% 10%;
-    --sidebar-foreground: 220 14% 96%;
-    --sidebar-primary: 142 71% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 13% 25%;
-    --sidebar-accent-foreground: 220 14% 96%;
-    --sidebar-border: 220 13% 25%;
-    --sidebar-ring: 217 91% 58%;
+    --sidebar-accent: 90 15% 95%;
+    --sidebar-accent-foreground: 150 18% 12%;
+    --sidebar-border: 100 12% 88%;
+    --sidebar-ring: 228 55% 43%;
   }
 }
 
@@ -101,40 +58,51 @@ Professional Corporate Design System
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+  html {
+    scroll-behavior: smooth;
+    /* compensa o menu fixo ao rolar para uma seção */
+    scroll-padding-top: 5rem;
   }
 
-  /* Professional Typography */
-  h1, h2, h3, h4, h5, h6 {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+
+  h4, h5, h6 {
     @apply font-semibold tracking-tight;
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+  ::selection {
+    @apply bg-primary text-primary-foreground;
   }
 
-  h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
+}
 
-  h3 {
-    @apply text-xl md:text-2xl lg:text-3xl;
+@layer components {
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+  }
+  .section-eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-primary/60;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-[1.1];
+  }
+  .section-lead {
+    @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
   }
 }
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection styling */
-::selection {
-  @apply bg-primary text-primary-foreground;
-}
-
-::-moz-selection {
-  @apply bg-primary text-primary-foreground;
-}
-

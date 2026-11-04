@@ -1,153 +1,141 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trees, Leaf, FileCheck, Axe, BarChart3, Sprout } from "lucide-react";
-import forestInventory from "@/assets/services/forest-inventory.jpg";
-import restoration from "@/assets/services/restoration.jpg";
-import environmental from "@/assets/services/environmental.jpg";
-import suppression from "@/assets/services/suppression.jpg";
-import business from "@/assets/services/business.jpg";
-import carbon from "@/assets/services/carbon.jpg";
+import { Trees, Leaf, FileCheck, Axe, BarChart3, Sprout, Check } from "lucide-react";
+import forestInventory from "@/assets/services/forest-inventory.webp";
+import restoration from "@/assets/services/restoration.webp";
+import environmental from "@/assets/services/environmental.webp";
+import suppression from "@/assets/services/suppression.webp";
+import business from "@/assets/services/business.webp";
+import carbon from "@/assets/services/carbon.webp";
 
 const services = [
   {
     icon: Trees,
     title: "Inventário Florestal",
-    description: "Levantamentos precisos e análises detalhadas de recursos florestais",
+    description: "Levantamentos precisos e análises detalhadas de recursos florestais.",
     image: forestInventory,
+    alt: "Tronco de árvore visto de baixo em floresta",
     items: [
-      "Inventário em Florestas Plantadas",
-      "Inventário em Florestas Nativas",
-      "Estudos de Fenologia",
-      "Identificação Botânica"
-    ]
+      "Inventário em florestas plantadas",
+      "Inventário em florestas nativas",
+      "Estudos de fenologia",
+      "Identificação botânica",
+    ],
   },
   {
     icon: Sprout,
     title: "Restauração Florestal",
-    description: "Projetos de recuperação e reflorestamento sustentável",
+    description: "Projetos de recuperação e reflorestamento com espécies nativas.",
     image: restoration,
+    alt: "Mudas florestais em tubetes no viveiro",
     items: [
-      "Execução de PRAD e Plantios Compensatórios",
-      "Monitoramento de Restauração Florestal",
-      "Coleta de Sementes Florestais Nativas",
-      "Gestão de Viveiros Florestais"
-    ]
+      "Execução de PRAD e plantios compensatórios",
+      "Monitoramento de restauração florestal",
+      "Coleta de sementes florestais nativas",
+      "Gestão de viveiros florestais",
+    ],
   },
   {
     icon: FileCheck,
     title: "Adequação Ambiental",
-    description: "Soluções para regularização e conformidade ambiental",
+    description: "Regularização e conformidade ambiental para propriedades e empreendimentos.",
     image: environmental,
+    alt: "Floresta com araucárias e árvore florida",
     items: [
-      "Licenciamento Ambiental",
-      "Regularização de Áreas Degradadas",
-      "Projetos de Adequação (PRAD, PRA, CAR)",
-      "Geoprocessamento e Mapeamento",
-      "PGRS Plano de Gerenciamento de Resíduos Sólidos"
-    ]
+      "Licenciamento ambiental",
+      "Regularização de áreas degradadas",
+      "Projetos de adequação (PRAD, PRA, CAR)",
+      "Geoprocessamento e mapeamento",
+      "PGRS – Plano de Gerenciamento de Resíduos Sólidos",
+    ],
   },
   {
     icon: Axe,
     title: "Supressão Florestal",
-    description: "Execução segura e responsável de operações florestais",
+    description: "Planejamento e execução segura e responsável de operações florestais.",
     image: suppression,
+    alt: "Árvore de grande porte em mata nativa",
     items: [
-      "Elaboração e Acompanhamento de ASV",
-      "Execução de Supressão Vegetal",
-      "Projetos para Poda em Árvores Urbanas",
-      "Execução de Podas"
-    ]
+      "Elaboração e acompanhamento de ASV",
+      "Execução de supressão vegetal",
+      "Projetos de poda de árvores urbanas",
+      "Execução de podas",
+    ],
   },
   {
     icon: BarChart3,
     title: "Inteligência de Negócios",
-    description: "Transformação de dados em insights estratégicos",
+    description: "Transformação de dados florestais e operacionais em decisões estratégicas.",
     image: business,
+    alt: "Estrada de terra com ipê amarelo florido",
     items: [
-      "Automação de Relatórios e Dashboards",
+      "Automação de relatórios e dashboards",
       "ETL com Power Query e Python",
-      "Linguagem DAX e Painéis Estratégicos",
-      "Transformação de Dados em Insights"
-    ]
+      "Painéis estratégicos com DAX",
+      "Análise de dados para tomada de decisão",
+    ],
   },
   {
     icon: Leaf,
     title: "Créditos de Carbono",
-    description: "Soluções em projetos de carbono e sustentabilidade",
+    description: "Soluções em projetos de carbono e valorização de ativos ambientais.",
     image: carbon,
+    alt: "Flor vermelha de espécie nativa na mata",
     items: [
-      "Soluções em Projetos de Carbono",
-      "Transformação de Desafios Climáticos",
-      "Monetização de Ativos Ambientais",
-      "Consultoria em Sustentabilidade"
-    ]
-  }
+      "Projetos de carbono",
+      "Soluções para desafios climáticos",
+      "Monetização de ativos ambientais",
+      "Consultoria em sustentabilidade",
+    ],
+  },
 ];
 
 const Services = () => {
   return (
-    <section id="portfolio" className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
+    <section id="servicos" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-muted/60">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Portfolio de Serviços
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto pt-4">
-            Portfólio completo de soluções em engenharia ambiental e florestal com expertise comprovada
+        <div className="max-w-2xl mb-12 md:mb-16">
+          <span className="section-eyebrow">Serviços</span>
+          <h2 className="section-title mt-4">Soluções para todo o ciclo florestal</h2>
+          <p className="section-lead mt-5">
+            Do inventário à regularização, atuamos com equipe técnica própria em projetos de engenharia ambiental e
+            florestal.
           </p>
         </div>
-        
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card 
-                key={index} 
-                className="group relative overflow-hidden bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
-              >
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                ></div>
-                
-                {/* Dark Overlay with better contrast */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 group-hover:from-black/55 group-hover:via-black/45 group-hover:to-black/65 transition-all duration-300"></div>
 
-                <CardHeader className="pb-4 relative z-10">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map(({ icon: Icon, title, description, image, alt, items }) => (
+            <article
+              key={title}
+              className="group flex flex-col overflow-hidden rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="relative h-44">
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src={image}
+                    alt={alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <span className="absolute z-10 bottom-0 left-6 translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg ring-4 ring-card">
+                  <Icon className="h-6 w-6" />
+                </span>
+              </div>
 
-                  {/* Title with background */}
-                  <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 -mx-2">
-                    <CardTitle className="text-xl text-white font-bold">{service.title}</CardTitle>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4 relative z-10">
-                  {/* Items List with background */}
-                  <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4">
-                    <ul className="space-y-2">
-                      {service.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-sm text-white flex items-start gap-3 group/item">
-                          <span className="text-primary font-bold mt-0.5 group-hover/item:text-secondary transition-colors">→</span>
-                          <span className="group-hover/item:text-white/90 transition-colors">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                </CardContent>
-
-                {/* Accent line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></div>
-              </Card>
-            );
-          })}
+              <div className="flex flex-1 flex-col p-6 pt-10">
+                <h3 className="text-xl md:text-2xl font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{description}</p>
+                <ul className="mt-5 space-y-2.5 border-t border-border pt-5">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -155,4 +143,3 @@ const Services = () => {
 };
 
 export default Services;
-

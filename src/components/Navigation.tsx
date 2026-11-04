@@ -1,113 +1,94 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.webp";
+import { navLinks } from "@/lib/site";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
-  };
-
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/95 backdrop-blur-md shadow-md border-b border-border' 
-        : 'bg-background/50 backdrop-blur-sm'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
-          <div 
-            className="flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200" 
-            onClick={() => scrollToSection('home')}
-          >
-            <img src={logo} alt="CVG Engenharia" className="h-16 w-auto" />
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1">
-            <button 
-              onClick={() => scrollToSection('home')} 
-              className="px-4 py-2 text-foreground hover:text-primary transition-colors font-medium text-sm"
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isScrolled || isOpen
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-background/80 backdrop-blur-sm"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Menu principal">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <a href="#inicio" className="flex items-center shrink-0" onClick={() => setIsOpen(false)}>
+            <img
+              src={logo}
+              alt="CVG Engenharia & Projetos"
+              width={600}
+              height={408}
+              className="h-12 md:h-16 w-auto"
+            />
+          </a>
+
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="px-3 lg:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#formulario-contato"
+              className="ml-3 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
             >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('empresa')} 
-              className="px-4 py-2 text-foreground hover:text-primary transition-colors font-medium text-sm"
-            >
-              A Empresa
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')} 
-              className="px-4 py-2 text-foreground hover:text-primary transition-colors font-medium text-sm"
-            >
-              Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('contato')} 
-              className="px-4 py-2 text-foreground hover:text-primary transition-colors font-medium text-sm"
-            >
-              Fale Conosco
-            </button>
+              Solicitar orçamento
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-foreground hover:text-primary transition-colors"
+          {/* Botão do menu no celular */}
+          <button
+            className="md:hidden -mr-2 p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Menu no celular */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-border animate-in fade-in duration-200">
-            <button 
-              onClick={() => scrollToSection('home')} 
-              className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted/50 transition-colors font-medium rounded"
+          <div className="md:hidden pb-4 pt-2 space-y-1 border-t border-border animate-in fade-in slide-in-from-top-2 duration-200">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#formulario-contato"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 block text-center rounded-full bg-primary px-5 py-3 text-base font-semibold text-primary-foreground"
             >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('empresa')} 
-              className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted/50 transition-colors font-medium rounded"
-            >
-              A Empresa
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')} 
-              className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted/50 transition-colors font-medium rounded"
-            >
-              Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('contato')} 
-              className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted/50 transition-colors font-medium rounded"
-            >
-              Fale Conosco
-            </button>
+              Solicitar orçamento
+            </a>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
 export default Navigation;
-

@@ -1,97 +1,77 @@
-import { Building2, Award, Leaf, MapPin } from "lucide-react";
+import { Award, Leaf, MapPin, Ruler } from "lucide-react";
+import teamFieldwork from "@/assets/gallery/team-fieldwork.webp";
+import fieldMeasurement from "@/assets/gallery/field-measurement.webp";
+import { FOUNDING_YEAR, yearsOfExperience } from "@/lib/site";
+
+const features = [
+  {
+    icon: Ruler,
+    title: "Experiência em campo",
+    description: `Desde ${FOUNDING_YEAR} levantando dados e entregando projetos de engenharia florestal e ambiental.`,
+  },
+  {
+    icon: Award,
+    title: "Excelência técnica",
+    description: "Rigor metodológico e precisão em cada inventário, laudo e relatório entregue.",
+  },
+  {
+    icon: Leaf,
+    title: "Sustentabilidade",
+    description: "Soluções que conciliam a produção com a conservação dos recursos naturais.",
+  },
+];
 
 const About = () => {
-  const features = [
-    {
-      icon: Building2,
-      title: "Experiência Comprovada",
-      description: "Atuando desde 2020 com soluções especializadas em engenharia florestal e ambiental",
-      color: "bg-primary"
-    },
-    {
-      icon: Award,
-      title: "Excelência Técnica",
-      description: "Comprometimento com qualidade e precisão em cada projeto desenvolvido",
-      color: "bg-secondary"
-    },
-    {
-      icon: Leaf,
-      title: "Sustentabilidade",
-      description: "Soluções que respeitam e preservam o meio ambiente para as futuras gerações",
-      color: "bg-primary"
-    }
-  ];
-
   return (
-    <section id="empresa" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            A Empresa
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-        </div>
-
-        {/* Main Description */}
-        <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12 mb-16 border border-primary/10">
-          <div className="flex items-start gap-4 mb-4">
-            <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Sede em Rio Negro, Paraná</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Somos uma empresa brasileira especializada em soluções de engenharia florestal e ambiental. Com excelência técnica e compromisso com a sustentabilidade, atendemos pequenas, médias e grandes empresas em toda a América Latina.
-              </p>
-            </div>
+    <section id="empresa" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Imagens */}
+        <div className="relative order-2 lg:order-1">
+          <img
+            src={teamFieldwork}
+            alt="Equipe da CVG em trabalho de campo"
+            loading="lazy"
+            className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
+          />
+          <img
+            src={fieldMeasurement}
+            alt="Medição de diâmetro de árvore com paquímetro"
+            loading="lazy"
+            className="hidden sm:block absolute -bottom-10 -right-6 w-2/5 aspect-square object-cover rounded-2xl border-4 border-background shadow-xl"
+          />
+          <div className="absolute -top-5 -left-3 sm:-left-5 rounded-2xl bg-primary text-primary-foreground px-5 py-4 shadow-lg">
+            <p className="font-display text-3xl font-semibold leading-none">{yearsOfExperience()}+</p>
+            <p className="text-xs font-medium mt-1 opacity-90">anos de atuação</p>
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div 
-                key={index}
-                className="group relative bg-card rounded-xl p-8 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-              >
-                {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+        {/* Texto */}
+        <div className="order-1 lg:order-2">
+          <span className="section-eyebrow">A Empresa</span>
+          <h2 className="section-title mt-4">Conhecimento técnico do campo ao relatório</h2>
+          <p className="section-lead mt-6">
+            A CVG Engenharia & Projetos é uma empresa brasileira especializada em soluções de engenharia florestal e
+            ambiental. Atendemos pequenas, médias e grandes empresas, unindo trabalho de campo, análise de dados e
+            compromisso com a sustentabilidade.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground">
+            <MapPin className="h-4 w-4 text-primary" />
+            Sede em Rio Negro, Paraná
+          </p>
 
-                {/* Icon */}
-                <div className={`w-14 h-14 ${feature.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-7 h-7 text-white" />
+          <ul className="mt-10 space-y-6">
+            {features.map(({ icon: Icon, title, description }) => (
+              <li key={title} className="flex gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="font-sans text-lg font-semibold text-foreground">{title}</h3>
+                  <p className="mt-1 text-muted-foreground leading-relaxed">{description}</p>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-
-                {/* Accent line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full group-hover:w-full transition-all duration-300"></div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-border">
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">5+</div>
-            <p className="text-muted-foreground">Anos de Experiência</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">50+</div>
-            <p className="text-muted-foreground">Projetos Concluídos</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10+</div>
-            <p className="text-muted-foreground">Estados Atendidos</p>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -99,4 +79,3 @@ const About = () => {
 };
 
 export default About;
-
