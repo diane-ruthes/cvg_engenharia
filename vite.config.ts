@@ -5,9 +5,9 @@ import fs from "fs";
 
 // Caminho base e URL pública do site.
 // No GitHub Actions eles vêm do "configure-pages" (funciona com o endereço
-// *.github.io/heart-your-portfolio/ e também com domínio próprio).
+// *.github.io/cvg_engenharia/ e também com domínio próprio).
 const base = process.env.BASE_PATH ? `${process.env.BASE_PATH.replace(/\/$/, "")}/` : "/";
-const siteUrl = (process.env.VITE_SITE_URL || "https://diane-ruthes.github.io/heart-your-portfolio").replace(/\/?$/, "/");
+const siteUrl = (process.env.VITE_SITE_URL || "https://diane-ruthes.github.io/cvg_engenharia").replace(/\/?$/, "/");
 process.env.VITE_SITE_URL = siteUrl;
 
 // Gera sitemap.xml e robots.txt com o endereço correto e
